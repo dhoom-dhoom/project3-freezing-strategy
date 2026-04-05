@@ -1,1 +1,2 @@
 commit	val_error	val_macro_f1	val_accuracy	status	description
+ee98861	0.152654	0.847346	0.846325	keep	900s baseline on Kaggle P100 with all_but_head

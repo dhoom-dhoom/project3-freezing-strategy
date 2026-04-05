@@ -36,7 +36,7 @@ from prepare import (
 # Mutable experiment surface
 # ---------------------------------------------------------------------------
 
-FREEZE_STRATEGY = "all_but_head"
+FREEZE_STRATEGY = "freeze_early"
 
 # Allowed values:
 # - all_but_head

@@ -1,0 +1,16 @@
+{
+  "id": "your-kaggle-username/indiwaste-project3-freezing",
+  "title": "IndiWASTE Project 3 Freezing Strategy",
+  "code_file": "run_project3.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": "true",
+  "enable_gpu": "true",
+  "enable_internet": "false",
+  "dataset_sources": [
+    "your-kaggle-username/indiwaste-dataset"
+  ],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": []
+}

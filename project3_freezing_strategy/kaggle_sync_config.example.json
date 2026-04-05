@@ -1,0 +1,18 @@
+{
+  "kernel_id": "your-kaggle-username/indiwaste-project3-freezing",
+  "kernel_title": "IndiWASTE Project 3 Freezing Strategy",
+  "dataset_source": "your-kaggle-username/indiwaste-dataset",
+  "dataset_mount_slug": "indiwaste-dataset",
+  "dataset_subdir": "IndiWASTE",
+  "weights_dataset_source": "",
+  "weights_dataset_mount_slug": "",
+  "weights_file": "resnet18-f37072fd.pth",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "p100_torch_index_url": "https://download.pytorch.org/whl/cu126",
+  "p100_torch_version": "2.7.1",
+  "p100_torchvision_version": "0.22.1",
+  "poll_seconds": 30,
+  "output_dir": "kaggle_outputs"
+}

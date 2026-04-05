@@ -1,0 +1,2 @@
+commit	val_error	val_macro_f1	val_accuracy	status	description
+uncommitted	0.152173	0.847827	0.848552	keep	baseline on Kaggle P100 with all_but_head after cu126 torch bootstrap

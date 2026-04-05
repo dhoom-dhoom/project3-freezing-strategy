@@ -2,7 +2,7 @@
 Project 3 training script for IndiWASTE.
 
 Karpathy-style autoresearch adaptation:
-- fixed 300-second budget
+- fixed 900-second budget
 - fixed dataset/eval harness in prepare.py
 - single intended search surface: freeze strategy
 """

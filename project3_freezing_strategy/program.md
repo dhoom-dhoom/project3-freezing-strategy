@@ -33,7 +33,7 @@ Do not modify `prepare.py` during the experiment loop unless the human explicitl
 
 ## Research Objective
 
-Compare freezing strategies for an ImageNet-pretrained ResNet on IndiWASTE under the same 300-second budget.
+Compare freezing strategies for an ImageNet-pretrained ResNet on IndiWASTE under the same 900-second budget.
 
 The default metric is:
 

@@ -6,7 +6,7 @@ This file defines:
 - fixed train/val/test split handling
 - fixed transforms
 - fixed metrics
-- fixed 300-second training budget
+- fixed 900-second training budget
 
 Do not modify during the autoresearch loop unless explicitly requested by the human.
 """
@@ -34,7 +34,7 @@ from torchvision.models import ResNet18_Weights
 # Constants (fixed, do not modify in the loop)
 # ---------------------------------------------------------------------------
 
-TIME_BUDGET = 300
+TIME_BUDGET = 900
 IMAGE_SIZE = 224
 NUM_CLASSES = 10
 DEFAULT_BATCH_SIZE = 16

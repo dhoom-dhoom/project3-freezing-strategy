@@ -42,6 +42,29 @@ def _run(cmd: list[str], cwd: Path | None = None, capture_output: bool = False):
     )
 
 
+def _run_with_retries(
+    cmd: list[str],
+    cwd: Path | None = None,
+    capture_output: bool = False,
+    retries: int = 3,
+    sleep_seconds: int = 5,
+):
+    last_exc = None
+    for attempt in range(1, retries + 1):
+        try:
+            return _run(cmd, cwd=cwd, capture_output=capture_output)
+        except subprocess.CalledProcessError as exc:
+            last_exc = exc
+            if attempt == retries:
+                break
+            print(
+                f"Command failed on attempt {attempt}/{retries}: {exc}. "
+                f"Retrying in {sleep_seconds}s..."
+            )
+            time.sleep(sleep_seconds)
+    raise last_exc
+
+
 def _kaggle_cmd() -> list[str]:
     explicit = os.environ.get("KAGGLE_EXE")
     if explicit:
@@ -286,7 +309,18 @@ def download_output():
     _check_kaggle_cli()
     output_dir = PROJECT_DIR / config.get("output_dir", "kaggle_outputs")
     output_dir.mkdir(parents=True, exist_ok=True)
-    _run(_kaggle_cmd() + ["kernels", "output", config["kernel_id"], "-p", str(output_dir)])
+
+    # Clear prior downloaded artifacts so the Kaggle CLI does not skip newer local files
+    # and leave us reading stale metrics from the previous experiment.
+    for child in output_dir.iterdir():
+        if child.is_dir():
+            shutil.rmtree(child)
+        else:
+            child.unlink()
+
+    _run_with_retries(
+        _kaggle_cmd() + ["kernels", "output", config["kernel_id"], "-p", str(output_dir)]
+    )
     print(f"Downloaded outputs to {output_dir}")
 
 
@@ -297,7 +331,7 @@ def watch_and_download():
     kernel_id = config["kernel_id"]
 
     while True:
-        result = _run(
+        result = _run_with_retries(
             _kaggle_cmd() + ["kernels", "status", kernel_id],
             capture_output=True,
         )

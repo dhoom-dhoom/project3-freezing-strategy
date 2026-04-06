@@ -1,3 +1,4 @@
 commit	val_error	val_macro_f1	val_accuracy	status	description
 ee98861	0.152654	0.847346	0.846325	keep	900s baseline on Kaggle P100 with all_but_head
 3979af4	0.157133	0.842867	0.844098	discard	900s comparison on Kaggle P100 with freeze_early
+a693722	0.166171	0.833829	0.832962	discard	900s comparison on Kaggle P100 with freeze_late
